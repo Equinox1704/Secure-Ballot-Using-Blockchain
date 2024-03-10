@@ -219,6 +219,23 @@ body{
 .forgot-pass a:hover {
     text-decoration: underline;
 }
+.error-message {
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+.warning-box {
+    background-color: red;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.error-text {
+    color: white;
+}
+
 .input-submit {
     display: flex;
     align-items: center;
