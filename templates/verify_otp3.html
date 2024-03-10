@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official Login</title>
+</head>
+<body>
+    <h2>Official Login</h2>
+    <form id="otp-form" action="{% url 'verify-otp3' %}" method="post">
+        {% csrf_token %}
+        <label for="email">Enter Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <label for="otp">Enter OTP:</label><br>
+        <input type="number" id="otp" name="otp" disabled required><br>
+        <button type="button" id="send-otp">Send OTP</button>
+        <button type="submit" id="verify-otp" disabled>Verify OTP</button>
+    </form>
+
+    {% comment %} {% if error %}
+        <p>{{ error }}</p>
+        <script>
+            setTimeout(function () {
+                window.location.href = "{% url 'official_login' %}";
+            }, 3000);
+        </script>
+    {% endif %} {% endcomment %}
+
+    <script>
+        document.getElementById('send-otp').addEventListener('click', function () {
+            var emailInput = document.getElementById('email');
+            var sendButton = document.getElementById('send-otp');
+            var verifyButton = document.getElementById('verify-otp');
+            var otpInput = document.getElementById('otp');
+
+            // Disable email input field for 30 seconds
+            emailInput.disabled = true;
+            setTimeout(function () {
+                emailInput.disabled = false;
+            }, 30000);
+
+            // Enable verify button and OTP input
+            verifyButton.disabled = false;
+            otpInput.disabled = false;
+
+            // Disable send button
+            sendButton.disabled = true;
+
+            // Placeholder for sending OTP to email (not implemented here)
+            // You need to implement sending OTP to email using your backend logic
+            alert('OTP has been sent to your email.'); // Placeholder for sending OTP to email
+        });
+
+        document.getElementById('verify-otp').addEventListener('click', function () {
+            // Placeholder for OTP verification logic (not implemented here)
+            var enteredOTP = document.getElementById('otp').value;
+            var sentOTP = "1234"; // Placeholder for sent OTP
+        
+            if (enteredOTP === sentOTP) {
+                window.location.href = "{% url 'official_home' %}";
+            } else {
+                alert('Wrong OTP. Please try again.');
+                setTimeout(function () {
+                    window.location.href = "{% url 'official_login' %}";
+                }, 3000);
+            }
+        });
+        
+    </script>
+</body>
+</html>
