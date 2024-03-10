@@ -17,7 +17,7 @@ This project aims to create a secure online voting system using Python, Django f
 - **Django Framework**
 - **HTML/CSS/JavaScript**
 
-<span style="color:blue">## Installation</span>
+<span style="color:blue">##Installation
 
 1. **Clone the repository:**
 
@@ -41,7 +41,7 @@ This project aims to create a secure online voting system using Python, Django f
    ```
 5. Access the web application through your browser at http://127.0.0.1:8000.
 
-<span style="color:blue">**Credits**</span>
+<span style="color:blue">Credits</span>
 This project is created and maintained by :
      *1. Akshat - akshat4900@gmail.com
       2. Prajeet - prajeetmeshram2003@gmail.com
