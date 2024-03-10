@@ -22,7 +22,7 @@ This project aims to create a secure online voting system using Python, Django f
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/secure-voting-system.git
+   https://github.com/Akshat-ak47/Secure-Ballot-Using-Blockchain.git
    cd secure-voting-system
    ```
 2. **Install Dependencies:**
@@ -33,7 +33,7 @@ This project aims to create a secure online voting system using Python, Django f
    ```
    python manage.py makemigrations
    python manage.py migrate
-   python manage.py collectstatics
+   python manage.py collectstatic
    ```
 4. **Run development server**
    ```
