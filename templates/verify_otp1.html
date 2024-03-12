@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify OTP</title>
+</head>
+<body>
+    <h2>Enter OTP</h2>
+    <form id="otp-form" method="post">
+        {% csrf_token %}
+        <label for="otp">Enter OTP:</label><br>
+        <input type="text" id="otp" name="otp"><br>
+        <button type="button" id="send-otp">Send OTP</button>
+        <button type="button" id="verify-otp">Verify OTP</button>
+    </form>
+
+    <div id="otp-message"></div>
+
+    <script>
+        document.getElementById('send-otp').addEventListener('click', function () {
+            alert('OTP has been sent to your mobile number.');
+        });
+
+        document.getElementById('verify-otp').addEventListener('click', function () {
+            var enteredOTP = document.getElementById('otp').value;
+            var sentOTP = "560";
+
+            if (enteredOTP === sentOTP) {
+                window.location.href = "{% url 'home' %}";
+            } else {
+                // Show error message if OTP is incorrect
+                document.getElementById('otp-message').innerText = "Wrong OTP. Please try again.";
+                setTimeout(function () {
+                    window.location.href = "{% url 'voter_login' %}";
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>
