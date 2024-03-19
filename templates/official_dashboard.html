@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Ballot Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/official_dashboard.css' %}">
+</head>
+<body>
+    <div id="sidebar">
+        <h2>Secure Ballot</h2>
+        <ul>
+            <li id="dashboard" onclick="showSection('dashboard')">Dashboard</li>
+            <li id="event" onclick="showSection('event')">Event</li>
+            <li id="profile" onclick="showSection('profile')">Profile</li>
+            <li id="settings" onclick="showSection('settings')">Settings</li>
+            <li id="logout" onclick="logout()">Logout</li>
+        </ul>
+    </div>
+    <div id="content">
+        <div id="dashboard-section">
+            <h2>Dashboard Section</h2>
+            <!-- Add your dashboard content here -->
+        </div>
+        <div id="event-section" style="display: none;">
+            <h2 style="text-align: center;">Organize Event</h2>
+            <div id="organize-event-options">
+                <button onclick="openPopup()">+ Organize Event</button>
+            </div>
+            <!-- Table to display events -->
+            <table id="event-table" style="width:100%;">
+                <thead>
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Event Purpose</th>
+                    </tr>
+                </thead>
+                <tbody id="event-table-body">
+                    <!-- Event details will be inserted here dynamically -->
+                </tbody>
+            </table>
+        </div>
+        <!-- Popup for organizing event -->
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span class="close" onclick="closePopup()">&times;</span>
+                <h3>Organize Event</h3>
+                <form id="event-form" onsubmit="addEvent(event)">
+                    {% csrf_token %}
+                    <label for="event-name">Event Name:</label><br>
+                    <input type="text" id="event-name" name="event-name"><br>
+                    <label for="num-teams">Number of Teams/Parties:</label><br>
+                    <input type="number" id="num-teams" name="num-teams"><br>
+                    <input type="number" id="num-teams" name="num-teams" onchange="addPartyRows()"><br>
+                    <div id="party-rows">
+                        <!-- Party name and image fields will be dynamically added here -->
+                    </div>
+                    <label for="event-purpose">Purpose of Event:</label><br>
+                    <textarea id="event-purpose" name="event-purpose"></textarea><br>
+                    <button type="submit">OK</button>
+                    <button type="button" class="cancel" onclick="closePopup()">Cancel</button>
+                </form>
+            </div>
+        </div>
+        <!-- Event details popup -->
+        <div id="event-popup" class="popup">
+            <div class="popup-content" id="event-popup-content">
+                <span class="close" onclick="closeEventPopup()">&times;</span>
+            </div>
+        </div>
+                <!-- Event details will be inserted here dynamically -->
+            </div>
+        </div>
+        <div id="profile-section" style="display: none;">
+            <h2>Profile Section</h2>
+            <div class="profile-info">
+                <p>Username: <span id="username">{{ username }}</span></p>
+                <p>Full Name: <span id="full_name">{{ full_name }}</span></p>
+                <p>Email: <span id="email">{{ email }}</span></p>
+                <p>Phone Number: <span id="phone_number">{{ phone_number }}</span></p>
+                <p>Age: <span id="age">{{ age }}</span></p>
+            </div>
+        </div>
+        <div id="settings-section" style="display: none;">
+            <h2>Settings Section</h2>
+            <!-- Add your settings content here -->
+        </div>
+    </div>
+
+    <script src="{% static 'assets/js/official_dashboard.js' %}"></script>
+    <script>
+        function logout() {
+            fetch('/logout/', {
+                method: 'GET'
+            })
+            .then(response => {
+                if (response.redirected) {
+                    window.location.href = response.url; // Redirect to the login page
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
