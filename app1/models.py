@@ -1,6 +1,24 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class Event(models.Model):
+    User = models.ForeignKey(User, on_delete=models.CASCADE)
+    event_id = models.AutoField(primary_key=True)
+    event_name = models.CharField(max_length=100)
+    num_teams = models.IntegerField()
+    event_purpose = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    dummy_field = models.CharField(max_length=1, blank=True, null=True)
+
+
+class Team(models.Model):
+    event = models.ForeignKey(Event, related_name='teams', on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='team_images/')
+
+    def __str__(self):
+        return f"Team: {self.name} (Event: {self.event.event_name})"
+
 class GovernmentData(models.Model):
     aadhar_number = models.BigIntegerField(unique=True)
     mobile_number = models.BigIntegerField(unique=True)
@@ -40,3 +58,4 @@ class Official(models.Model):
     
     def __str__(self):
         return self.Username
+
