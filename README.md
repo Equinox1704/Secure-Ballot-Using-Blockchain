@@ -44,8 +44,7 @@ This project aims to create a secure online voting system using Python, Django f
 **Credits**
 This project is created and maintained by :
    - *Akshat - akshat4900@gmail.com*
-   - *Prajeet - prajeetmeshram2003@gmail.com*
-   - *Mayank - mayank@gmail.com*
+   - *Mayank - mnegi1704@gmail.com*
 
 
 **Contributing**
