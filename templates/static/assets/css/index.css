@@ -109,46 +109,125 @@
   align-items: center;
   justify-content: center;
 }
+
+nav .animation{
+  position: absolute;
+  height:7px;
+  bottom: 0;
+  z-index: 0;
+  background: #170890;
+  width: 100px;
+  border-radius: 8px; 
+  transition: all 0.5s ease 0s;
+}
+
+a:nth-child(1){
+  width: 100px;
+}
+
+nav .start-home,a:nth-child(1):hover~.animation{
+  width: 110px;
+  left: 390px;
+}
+
+a:nth-child(2){
+  width: 100px;
+}
+
+nav .start-features,a:nth-child(2):hover~.animation{
+  width: 110px;
+  left: 502px;
+}
+
+a:nth-child(3){
+  width: 100px;
+}
+
+nav .start-home,a:nth-child(3):hover~.animation{
+  width: 100px;
+  left: 624px;
+}
+
+a:nth-child(4){
+  width: 100px;
+}
+
+nav .start-home,a:nth-child(4):hover~.animation{
+  width: 100px;
+  left: 737px;
+}
+
+a:nth-child(5){
+  width: 100px;
+}
+
+nav .start-home,a:nth-child(5):hover~.animation{
+  width: 80px;
+  left: 848px;
+}
+
+a:nth-child(6){
+  width: 100px;
+}
+
+nav .start-home,a:nth-child(6):hover~.animation{
+  width: 100px;
+  left: 950px;
+}
+
+a:nth-child(7){
+  width: 100px;
+}
+
+nav .start-home,a:nth-child(7):hover~.animation{
+  width: 100px;
+  left: 0;
+}
+
 .home-nav12 {
   color: #bfcbf7;
-  font-size: 16px;
+  font-size: 20px;
   transition: 0.3s;
   font-family: "Lato";
   font-weight: 400;
   line-height: 150%;
+  padding-left: 15px;
 }
 
 
 .home-nav22 {
   color: #bfcbf7;
-  font-size: 16px;
+  font-size: 20px;
   transition: 0.3s;
   font-family: "Lato";
   font-weight: 400;
   line-height: 150%;
   margin-left: var(--dl-space-space-unit);
+  
 }
 
 
 .home-nav32 {
   color: #bfcbf7;
-  font-size: 16px;
+  font-size: 20px;
   font-family: "Lato";
   font-weight: 400;
   line-height: 150%;
   margin-left: var(--dl-space-space-unit);
+
 }
 .home-nav42 {
   color: #bfcbf7;
-  font-size: 16px;
+  font-size: 20px;
   font-family: "Lato";
   font-weight: 400;
   line-height: 150%;
   margin-left: var(--dl-space-space-unit);
+
 }
 .home-nav52 {
   color: rgb(191, 203, 247);
-  font-size: 16px;
+  font-size: 20px;
   font-family: "Lato";
   font-weight: 400;
   line-height: 150%;
@@ -156,11 +235,12 @@
 }
 .home-nav521 {
   color: rgb(191, 203, 247);
-  font-size: 16px;
+  font-size: 20px;
   font-family: "Lato";
   font-weight: 400;
   line-height: 150%;
-  margin-left: var(--dl-space-space-unit);
+ padding: 0 30px 0 0 ;
+ 
 }
 .home-buttons {
   display: flex;
