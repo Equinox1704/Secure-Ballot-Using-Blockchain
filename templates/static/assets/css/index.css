@@ -1,3 +1,62 @@
+.working {
+  background-color: black;
+  color: white;
+  font-family: lato;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100;
+  margin: 0;
+}
+
+.container {
+  max-width: 1000px;
+  padding: 40px 40px; 
+  justify-content: center;
+  text-align: center;
+}
+
+.head-working{
+  padding: 60px;
+  font-size: 60px;
+
+}
+
+h1 {
+  color: rgb(191, 203, 247);
+}
+
+ul {
+  font-size: 20px;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+li {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  line-height: 1.75; 
+}
+
+.heading {
+  flex: 0 0 30%;
+  text-align: left;
+  width: 30%;
+  float: left;
+  clear: left;
+}
+
+.explanation {
+  flex: 0 0 65%;
+  text-align: justify;
+  width: 65%;
+  float: left;
+}
+
+
 .feature-card-container {
   gap: var(--dl-space-space-unit);
   display: flex;
@@ -1026,4 +1085,21 @@ nav .start-home,a:nth-child(7):hover~.animation{
     text-align: center;
     margin-bottom: var(--dl-space-space-oneandhalfunits);
   }
+}
+
+.scroll-watcher{
+  height: 10px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background-color: #170890;
+  width: 100%;
+  scale: 0 1;
+  animation: scroll-watcher linear;
+  animation-timeline: scroll();
+  border-radius: 50%;
+}
+
+@keyframes scroll-watcher{
+  to {scale: 1 1;}
 }
